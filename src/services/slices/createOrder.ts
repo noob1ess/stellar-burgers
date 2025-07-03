@@ -14,7 +14,7 @@ const createOrderState: TCreateOrder = {
 
 export const fetchCreateOrder = createAsyncThunk(
   'orders/create',
-  async (data: string[]) => await orderBurgerApi(data)
+  orderBurgerApi
 );
 
 export const createOrderSlice = createSlice({
