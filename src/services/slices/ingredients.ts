@@ -7,7 +7,7 @@ type TIngredientsState = {
   status: RequestStatus;
 };
 
-const ingredientsState: TIngredientsState = {
+export const ingredientsState: TIngredientsState = {
   ingredients: [],
   status: RequestStatus.Idle
 };
@@ -17,7 +17,7 @@ export const fetchIngredients = createAsyncThunk(
   async () => getIngredientsApi()
 );
 
-const ingredientsSlice = createSlice({
+export const ingredientsSlice = createSlice({
   name: 'ingredients',
   initialState: ingredientsState,
   reducers: {},
