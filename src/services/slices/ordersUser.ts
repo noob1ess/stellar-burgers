@@ -7,7 +7,7 @@ type TOrdersSlice = {
   status: RequestStatus;
 };
 
-const ordersState: TOrdersSlice = {
+export const ordersState: TOrdersSlice = {
   orders: [],
   status: RequestStatus.Idle
 };
@@ -17,7 +17,7 @@ export const fetchOrdersUser = createAsyncThunk(
   async () => await getOrdersApi()
 );
 
-const ordersSlice = createSlice({
+export const ordersSlice = createSlice({
   name: 'orders',
   initialState: ordersState,
   reducers: {},
@@ -29,6 +29,10 @@ const ordersSlice = createSlice({
       .addCase(fetchOrdersUser.fulfilled, (state, action) => {
         state.orders = action.payload;
         state.status = RequestStatus.Success;
+      })
+      .addCase(fetchOrdersUser.rejected, (state, action) => {
+        state.orders = [];
+        state.status = RequestStatus.Failed;
       });
   }
 });

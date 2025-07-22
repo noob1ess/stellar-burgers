@@ -7,7 +7,7 @@ type TCreateOrder = {
   orderModalData: TOrder | null;
 };
 
-const createOrderState: TCreateOrder = {
+export const createOrderState: TCreateOrder = {
   orderRequest: false,
   orderModalData: null
 };
@@ -40,5 +40,7 @@ export const createOrderSlice = createSlice({
       });
   }
 });
+
+export const { closeOrderModal } = createOrderSlice.actions;
 
 export default createOrderSlice.reducer;

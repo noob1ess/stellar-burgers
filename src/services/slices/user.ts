@@ -22,7 +22,7 @@ export interface TUserInitialState {
   error?: SerializedError;
 }
 
-const userState: TUserInitialState = {
+export const userState: TUserInitialState = {
   isAuthChecked: false,
   data: {
     email: '',
@@ -82,7 +82,6 @@ export const fetchUser = createAsyncThunk(
     if (!response.success) {
       return rejectWithValue(response);
     }
-
     return response.user;
   }
 );
